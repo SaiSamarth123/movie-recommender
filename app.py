@@ -7,10 +7,6 @@ from dotenv import load_dotenv
 load_dotenv()
 TMDB_API_KEY = os.getenv("TMDB_API_KEY")
 
-# Auto-run generate_model.py if model not exists
-if not os.path.exists("model/recommender.pkl"):
-    print("[INFO] No model found. Auto-generating model...")
-    os.system("python3 scripts/generate_model.py")
 
 app = Flask(__name__)
 

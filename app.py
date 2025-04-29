@@ -77,12 +77,16 @@ def recommend(title):
 
 @app.route("/", methods=["GET", "POST"])
 def home():
-    recommendations = []
-    if request.method == "POST":
-        title = request.form.get("title")
-        if title:
-            recommendations = recommend(title)
-    return render_template("index.html", recommendations=recommendations)
+    try:
+        recommendations = []
+        if request.method == "POST":
+            title = request.form.get("title")
+            if title:
+                recommendations = recommend(title)
+        return render_template("index.html", recommendations=recommendations)
+    except Exception as e:
+        print(f"[ERROR] Rendering failed: {e}")
+        return "Something went wrong.", 500
 
 
 # ✅ Railway-compatible run config

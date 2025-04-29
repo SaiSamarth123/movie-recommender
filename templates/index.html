@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -111,5 +111,28 @@
     </main>
 
     <footer>Built with ❤️ using Flask and TMDB API</footer>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Movie Recommender</title>
+  </head>
+  <body>
+    <h1>Enter a movie</h1>
+    <form method="POST">
+      <input type="text" name="title" placeholder="e.g. Inception" />
+      <button type="submit">Go</button>
+    </form>
+
+    {% if recommendations %}
+    <h2>Recommendations:</h2>
+    <ul>
+      {% for movie in recommendations %}
+      <li>{{ movie }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
   </body>
 </html>

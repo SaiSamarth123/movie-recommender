@@ -30,8 +30,6 @@ coverage.xml
 *.cover
 
 # Model and dataset artifacts
-model/*.pkl
-model/*.csv
 
 # Logs
 *.log
